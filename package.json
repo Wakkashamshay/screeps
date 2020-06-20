@@ -1,0 +1,34 @@
+{
+  "name": "screeps",
+  "version": "1.0.0",
+  "description": "My screeps scripts",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wakkashamshay/screeps.git"
+  },
+  "keywords": [
+    "screeps"
+  ],
+  "author": "Michael Skidmore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wakkashamshay/screeps/issues"
+  },
+  "homepage": "https://github.com/Wakkashamshay/screeps#readme",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-file-append": "latest",
+    "grunt-jsbeautifier": "latest",
+    "time-grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-nodeunit": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-screeps": "^1.4.0"
+  }
+}
