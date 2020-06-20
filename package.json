@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Wakkashamshay/screeps#readme",
   "devDependencies": {
+    "diff": "latest",
     "grunt": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-clean": "latest",
