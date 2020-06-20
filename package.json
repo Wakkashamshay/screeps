@@ -19,17 +19,22 @@
     "url": "https://github.com/Wakkashamshay/screeps/issues"
   },
   "homepage": "https://github.com/Wakkashamshay/screeps#readme",
+  "dependencies": {},
   "devDependencies": {
-    "diff": "latest",
-    "grunt": "latest",
-    "grunt-contrib-copy": "latest",
-    "grunt-contrib-clean": "latest",
-    "grunt-file-append": "latest",
-    "grunt-jsbeautifier": "latest",
-    "time-grunt": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-nodeunit": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-screeps": "^1.4.0"
+    "@types/lodash": "^4.14.155",
+    "@types/screeps": "^3.1.2",
+    "@types/typescript": "^2.0.0",
+    "diff": "^4.0.2",
+    "grunt": "^1.1.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-nodeunit": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-file-append": "0.0.7",
+    "grunt-jsbeautifier": "^0.2.13",
+    "grunt-rsync": "^3.0.0",
+    "grunt-screeps": "^1.4.0",
+    "time-grunt": "^2.0.0"
   }
 }
