@@ -1,3 +1,7 @@
+var rm = require("./resource_manager");
+
+
 module.exports.loop = function() {
-    console.log("test");
+    
+    rm.room_check();
 }
