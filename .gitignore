@@ -1,4 +1,6 @@
 /.screeps.json
 /screeps.code-workspace
+constants.js
+notes.txt
 node_modules
 dist
