@@ -10,7 +10,7 @@ var role_harvester = {
         }
     },
     run: function (creep) {
-        creep.room.memory.resources.energy[creep.memory.target.id].worker = creep.id;
+        creep.room.memory.resources.energy[creep.memory.target.node.id].worker = creep.id;
 
         if (creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0) {
             creep.memory.harvested = false;
@@ -43,13 +43,13 @@ var role_harvester = {
             }
         } 
         
-        if (dropoff.type !== undefined) {
-            if ((Math.abs(creep.memory.dropoff.pos.x - creep.pos.x) > 1) || (Math.abs(creep.memory.dropoff.pos.y - creep.pos.y) > 1)) {
-                creep.moveTo(creep.memory.dropoff.pos.x, creep.memory.dropoff.pos.y);
+        if (creep.memory.dropoff.target !== undefined) {
+            if ((Math.abs(creep.memory.dropoff.target.pos.x - creep.pos.x) > 1) || (Math.abs(creep.memory.dropoff.target.pos.y - creep.pos.y) > 1)) {
+                creep.moveTo(creep.memory.dropoff.target.pos.x, creep.memory.dropoff.target.pos.y);
             } else {
-                switch (dropoff.type) {
+                switch (creep.memory.dropoff.type) {
                     case STRUCTURE_CONTROLLER :
-                        creep.upgradeController(Game.getObjectById(creep.memory.dropoff.id));
+                        creep.upgradeController(Game.getObjectById(creep.memory.dropoff.target.id));
                         break;
                     case STRUCTURE_SPAWN :
                         creep.transfer(Game.getObjectById(creep.memory.dropoff.id), RESOURCE_ENERGY, 1);

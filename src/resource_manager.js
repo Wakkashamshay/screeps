@@ -16,8 +16,11 @@ var resource_manager = {
     manage_civilians: function (room) {
         // Either we need to create a creep for the resource or we need to replace them
         for (let resource in room.memory.resources.energy) {
-            if (room.memory.resources.energy[resource].worker == undefined || !Game.creeps[room.memory.resources.energy[resource]]) {
+            console.log("is it dad " + Game.getObjectById(room.memory.resources.energy[resource].worker) == null);
+            if (room.memory.resources.energy[resource].worker == undefined || Game.getObjectById(room.memory.resources.energy[resource].worker) == null) {
                 this.createWorkerForResource(room, room.memory.resources.energy[resource]);
+            } else {
+                room.memory.resources.energy[resource].worker == -1;
             }
         }
     },
@@ -28,7 +31,6 @@ var resource_manager = {
                 case OK:
                     break;
                 default:
-                    console.log(JSON.stringify(Game.getObjectById(room.memory.spawns[0].id).spawnCreep(cd.roles.harvester.body, (room + "-" + Math.floor(Math.random() * 1000)), {memory: cd.roles.harvester.create_memory(resource)})));
                     break;
             }
         }

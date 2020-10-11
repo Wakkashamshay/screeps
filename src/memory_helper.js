@@ -1,7 +1,7 @@
 var memory_helper = {
     initialise_memory: function() {
         for (var room in Game.rooms) {
-            Game.rooms[room].memory.harvesters_energy = 0;   
+            Game.rooms[room].memory.harvesters_energy = 0;
         }
         Memory.controllers = {};
     },
@@ -23,16 +23,14 @@ var memory_helper = {
 
         if (room.memory.resources == undefined) {
             room.memory.resources = {};
-            room.memory.resources.energy = [];
+            room.memory.resources.energy = {};
 
             for (var source in energy_sources) {
-                room.memory.resources.energy.push(
-                    energy_sources[source].id: {
-                        node: energy_sources[source],
-                        path_to: room.findPath(room.controller.pos, energy_sources[source].pos, {serialise: false}),
-                        path_from: room.findPath(energy_sources[source].pos, (room.controller.pos), {serialise: false}),
-                    }
-                );
+                room.memory.resources.energy[energy_sources[source].id] = {
+                    node: energy_sources[source],
+                    path_to: room.findPath(room.controller.pos, energy_sources[source].pos, {serialise: false}),
+                    path_from: room.findPath(energy_sources[source].pos, (room.controller.pos), {serialise: false}),
+                }
             }
         }
     },
