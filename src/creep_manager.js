@@ -2,7 +2,6 @@ var con = require("./constants");
 var cd = require("./creep_definitions");
 
 var creep_manager = {
-
     run_all: function() {
         for (var creep in Game.creeps) {
             switch (Game.creeps[creep].memory.role) {

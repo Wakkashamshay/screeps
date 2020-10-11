@@ -9,7 +9,5 @@ module.exports.loop = function() {
         rm.room_check();
     }
 
-    for (var creep in Game.creeps) {
-        cm.run_all();
-    }
+    cm.run_all();
 }

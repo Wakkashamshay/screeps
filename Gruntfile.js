@@ -59,7 +59,6 @@ module.exports = function (grunt) {
             }
         },
 
-
         // Add version variable using current timestamp.
         file_append: {
             versioning: {
@@ -76,7 +75,6 @@ module.exports = function (grunt) {
         clean: {
             'dist': ['dist']
         },
-
 
         // Apply code styling
         jsbeautifier: {
