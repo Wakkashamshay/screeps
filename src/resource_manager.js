@@ -1,4 +1,5 @@
 var mh = require("./memory_helper");
+var cd = require("./creep_definitions");
 
 var resource_manager = {
 
@@ -15,21 +16,26 @@ var resource_manager = {
         }
     },
     manage_civilians: function (room) {
-        console.log("test222");
         if (room.memory.count_harvesters < room.memory.resources.energy.length) {
             for (i = 0; i < room.memory.resources.energy.length; i++) {
                 if (!room.memory.resources.energy[i].worker) {
                     this.createWorkerForResource(room, room.memory.resources.energy[i]);
-                    room.memory.resources.energy[i].worker = true;
                 }
             }
 
         }
     },
     createWorkerForResource: function (room, resource) {
-        console.log("test2" + room);
         if (room.memory.spawns[0] !== undefined) {
-            Game.getObjectById(room.memory.spawns[0].id).spawnCreep(resource);
+            var result = Game.getObjectById(room.memory.spawns[0].id).spawnCreep(cd.roles.harvester.body, (room.name + "-" + Math.floor(Math.random() * 1000)), {memory: cd.roles.harvester.create_memory(resource)});
+            switch (result) {
+                case OK:
+                    room.memory.resources.energy[i].worker = true;
+                    break;
+                default:
+                    console.log(JSON.stringify(Game.getObjectById(room.memory.spawns[0].id).spawnCreep(cd.roles.harvester.body, (room + "-" + Math.floor(Math.random() * 1000)), {memory: cd.roles.harvester.create_memory(resource)})));
+                    break;
+            }
         }
     }
 }

@@ -13,6 +13,7 @@ var memory_helper = {
                     Game.rooms[Game.structures[structure].room.name].memory.spawns.push({
                         id: Game.structures[structure].id
                     });
+                    break;
             }
         }
     },
@@ -28,7 +29,7 @@ var memory_helper = {
                 room.memory.resources.energy.push({
                     node: energy_sources[source],
                     path_to: room.findPath(room.controller.pos, energy_sources[source].pos, {serialise: true}),
-                    path_from: room.findPath(energy_sources[source].pos, {serialise: true}, (room.controller.pos)),
+                    path_from: room.findPath(energy_sources[source].pos, (room.controller.pos), {serialise: true}),
                     worker: false
                 });
             }
