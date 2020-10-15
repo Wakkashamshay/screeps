@@ -1,13 +1,13 @@
-var rm = require("./resource_manager");
-var cm = require("./creep_manager");  
-var mh = require("./memory_helper");
+let mr = require("./managerResource");
+let mc = require("./managerCreep");
+let hm = require("./helperMemory");
 
-mh.initialise_memory();
+hm.initializeMemory();
 
-module.exports.loop = function() {
+module.exports.loop = function () {
     if (Game.time % 20 === 0) {
-        rm.room_check();
+        mr.roomCheck();
     }
 
-    cm.run_all();
+    mc.runAll();
 }
