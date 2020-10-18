@@ -1,3 +1,5 @@
+const { xor } = require("lodash");
+
 let helperMemory = {
     initializeMemory: function () {
         for (const room in Game.rooms) {
@@ -76,6 +78,9 @@ let helperMemory = {
     },
     findResources: function (room) {
         // Find resources
+        // TODO: order them on the closest sources, then check if there's
+        //       space for more than one harvester. Maybe store the targets
+        //       for the standing positions?
         if (room.memory.resources === undefined) {
             room.memory.resources = {};
             room.memory.resources.energy = {};
@@ -94,14 +99,27 @@ let helperMemory = {
                     }
                 });
 
+                // We want to find the spots where a creep can stand to access it
+                let spots = [];
+                for (let y = -1; y <= 1; y++) {
+                    for (let x = -1; x <= 1; x++) {
+                        if (room.getTerrain().get(source.pos.x + x, source.pos.y + y) === 0) {
+                            spots.push([source.pos.x + x, source.pos.y + y]);
+                        }
+                    }
+                }
+
                 room.memory.resources.energy[source.id] = {
                     worker: false,
                     node: source,
+                    spots: spots,
                     hostile: hostileNear
                 }
                 //path_to: room.findPath(room.controller.pos, energySources[source].pos, { serialise: false }),
                 //path_from: room.findPath(energySources[source].pos, (room.controller.pos), { serialise: false }),
             }
+
+            // Sort based on distance to spawn
         }
     }
 }

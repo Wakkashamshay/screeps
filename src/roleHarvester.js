@@ -36,23 +36,24 @@ const roleHarvester = {
                 if (creep.store.getFreeCapacity([RESOURCE_ENERGY]) === 0) {
                     creep.memory.harvested = true;
 
-                    for (const spawn in creep.room.memory.spawns) {
-                        if (Game.getObjectById(creep.room.memory.spawns[spawn].id).store.getFreeCapacity([RESOURCE_ENERGY]) > 0) {
-                            creep.memory.dropoff = {
-                                type: STRUCTURE_SPAWN,
-                                target: creep.room.memory.spawns[spawn].id
-                            }
-                            break;
-                        }
-                    }
-
                     if (!creep.memory.dropoff &&
+                        creep.room.controller.level < 8 &&
                         creep.room.controller.progress < creep.room.controller.progressTotal) {
                         creep.memory.dropoff = {
                             type: STRUCTURE_CONTROLLER,
                             target: creep.room.controller.id
                         }
                     }
+
+                    // for (const spawn in creep.room.memory.spawns) {
+                    //     if (Game.getObjectById(creep.room.memory.spawns[spawn].id).store.getFreeCapacity([RESOURCE_ENERGY]) > 0) {
+                    //         creep.memory.dropoff = {
+                    //             type: STRUCTURE_SPAWN,
+                    //             target: creep.room.memory.spawns[spawn].id
+                    //         }
+                    //         break;
+                    //     }
+                    // }
                 }
             }
         }

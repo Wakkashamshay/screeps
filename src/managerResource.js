@@ -13,7 +13,7 @@ let managerResource = {
                 hm.findHostiles(Game.rooms[room]);
                 hm.findResources(Game.rooms[room]);
                 hm.generateBuildRequests(Game.rooms[room]);
-                this.manageDefenders(Game.rooms[room]);
+                //this.manageDefenders(Game.rooms[room]);
                 this.manageCivilians(Game.rooms[room]);
             }
         }
