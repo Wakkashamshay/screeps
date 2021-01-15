@@ -1,6 +1,6 @@
-const { config } = require("grunt");
+import { config } from 'npm grunt';
 
-module.exports = function (grunt) {
+export default function (grunt) {
     require('time-grunt')(grunt);
 
     // Pull defaults (including username and password) from .screeps.json

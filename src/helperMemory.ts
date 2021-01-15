@@ -1,4 +1,4 @@
-const { xor } = require("lodash");
+import { xor } from "lodash";
 
 let helperMemory = {
     initializeMemory: function () {
